@@ -1,0 +1,21 @@
+
+<html>
+  <head><title>完了画面</title>
+  <body>
+  		<h2>テーブル情報(entry_info)</h2>
+  		<a href="http://localhost:8080/input.html">トップへ戻る</a><hr>
+			<table>
+				<tr>
+					<td>名前</td><td>メールアドレス</td><td>性別</td><td>年齢</td><td>好きな食べ物1</td><td>好きな食べ物2</td><td>好きな食べ物3</td>
+					<td>好きな食べ物4</td><td>メッセージ</td>
+				</tr>
+				<TMPL_LOOP NAME=DESC_TABLE>
+				    <tr>
+					    <td><TMPL_VAR NAME></td><td><TMPL_VAR EMAIL></td><td><TMPL_VAR SEX></td><td><TMPL_VAR OLD></td><td><TMPL_VAR FOOD1></td>
+					    <td><TMPL_VAR FOOD2></td><td><TMPL_VAR FOOD3></td><td><TMPL_VAR FOOD4></td><td><TMPL_VAR MSG></td>
+				    </tr>
+				</TMPL_LOOP>
+			</table>
+			
+  </body>
+  </html>	

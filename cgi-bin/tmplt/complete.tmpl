@@ -1,0 +1,39 @@
+
+<html>
+  <head><title>完了画面</title>
+  <body>
+  		<br><h2>申し込みが完了しました</h2><hr>
+  		お申し込み手続きが完了しました。<br>
+  		お客様のメールアドレス宛にメールをお送りしますので、<br>
+  		必ずメールの内容をご確認ください。<br><br>
+  		
+  		<h2>申し込み情報</h2><hr>
+			<table>
+				<tr>
+					<td>名前:</td><td><TMPL_VAR ESCAPE=HTML NAME="NAME"></td>
+				</tr>
+				<tr>
+					<td>メールアドレス:</td>
+					<td><TMPL_VAR ESCAPE=HTML NAME="EMAIL"></td>
+				</tr>
+				<tr>
+					<td>性別:</td>
+					<td><TMPL_VAR ESCAPE=HTML NAME="SEX"></td>
+				</tr>
+				<tr>
+					<td>年齢:</td>
+					<td><TMPL_VAR ESCAPE=HTML NAME="OLD"></td>
+				</tr>
+				<tr>
+					<td>好きな食べ物:</td>
+					<td><TMPL_VAR ESCAPE=HTML NAME="FOOD"></td>
+				</tr>
+				<tr>
+					<td>メッセージ:</td>
+					<td><TMPL_VAR NAME="MSG"></td>
+				</tr>	
+			</table><br>
+			<a href="http://localhost:8080/input.html">トップへ戻る</a>
+
+  </body>
+  </html>	

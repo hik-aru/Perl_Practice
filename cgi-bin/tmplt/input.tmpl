@@ -1,0 +1,56 @@
+
+<html>
+	<head><title>Web-Learning</title></head>
+
+	<body>
+		<br><h2>申し込み情報をご入力ください</h2>
+		<a href="http://localhost:8080/input.html">トップへ戻る</a><hr>
+  		記入内容をご確認のうえ、「送信」ボタンをクリックしてください。<br><br>
+  		
+  		<!-------------------エラーメッセージ------------------>
+  		<TMPL_LOOP NAME=ERR_MSG>
+  		    <font color="red"><TMPL_VAR NAME="VALUE"></font>
+  		</TMPL_LOOP>
+  		
+  		<h2>記入項目</h2><hr>
+		<form method="post" action="http://localhost:8080/cgi-bin/confirm.cgi">
+			<!----------------------- 名前用フォーム ----------------------->	
+			<label for="name">名前:</label>
+			<input id="name" type="text" name="name" value="<TMPL_VAR ESCAPE=HTML NAME="NAME">" size="40"><br>
+			
+			
+			<!----------------------- メールアドレス用フォーム ----------------------->
+			<label for="email">メールアドレス：</label>
+			<input id="email"type="text" name="email" value="<TMPL_VAR ESCAPE=HTML NAME="EMAIL">" size="40"><br>
+			
+			
+			<!----------------------- 性別用フォーム ----------------------->
+			<label for="radio">性別：</label>
+			<input id="radio"type="radio" name="sex" value="男" size="40" <TMPL_VAR ESCAPE=HTML NAME="MAN">>男
+			<input id="radio"type="radio" name="sex" value="女" size="40" <TMPL_VAR ESCAPE=HTML NAME="WOMAN">>女<br>
+			
+			
+			<!----------------------- 年齢用フォーム ----------------------->
+			<label for="old">年齢：</label>
+			<select name="old">
+			   <TMPL_LOOP NAME=OLD_FORM>
+			       <option value="<TMPL_VAR ESCAPE=HTML NAME="VALUE">" <TMPL_VAR ESCAPE=HTML NAME="CHECK">><TMPL_VAR ESCAPE=HTML NAME="TEXT"></option>
+			   </TMPL_LOOP>	
+			</select><br>
+			
+			<!----------------------- 好きな食べ物用フォーム ----------------------->
+			<label for="foods">好きな食べ物：</label>
+			<TMPL_LOOP NAME=FOOD_FORM>
+			       <input id="foods"type="checkbox" name="ary" value="<TMPL_VAR ESCAPE=HTML NAME="VALUE">" size="40"
+			        <TMPL_VAR ESCAPE=HTML NAME="CHECK"> > <TMPL_VAR ESCAPE=HTML NAME="VALUE">
+			</TMPL_LOOP><br>
+	
+			<!----------------------- メッセージ用フォーム ----------------------->
+			<label for="msg">メッセージ:</label>		
+			<textarea name="msg" rows"4" cols="40"><TMPL_VAR ESCAPE=HTML NAME="MSG"></textarea><br>
+			
+			<input type="submit" value="送信">
+		</form>
+
+	</body>
+</html>

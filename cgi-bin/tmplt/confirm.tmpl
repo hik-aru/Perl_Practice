@@ -1,0 +1,68 @@
+
+<html>
+  <head><title>確認画面</title>
+  
+  <body>
+    <br><h2>申し込み内容をご確認ください</h2>
+    <a href="http://localhost:8080/input.html">トップへ戻る</a><hr>
+  	お申込み内容をご確認のうえ、「申し込む」ボタンをクリックしてください。<br>
+  	内容を修正する場合は、「前のページへ戻る」ボタンをクリックしてください。<br>
+  	※お申込み完了後、キャンセルすることはできません。<br><br>
+  	
+  	<h2>申し込み情報</h2><hr>
+  		<table>
+			<tr>
+				<td>名前:</td><td><TMPL_VAR ESCAPE=HTML NAME="NAME"></td>
+			</tr>
+			<tr>
+				<td>メールアドレス:</td>
+				<td><TMPL_VAR ESCAPE=HTML NAME="EMAIL"></td>
+			</tr>
+			<tr>
+				<td>性別:</td>
+				<td><TMPL_VAR ESCAPE=HTML NAME="SEX"></td>
+			</tr>
+			<tr>
+				<td>年齢:</td>
+				<td><TMPL_VAR ESCAPE=HTML NAME="OLD"></td>
+			</tr>
+			<tr>
+				<td>好きな食べ物:</td>
+				<td><TMPL_VAR ESCAPE=HTML NAME="FOOD"></td>
+			</tr>
+			<tr>
+				<td>メッセージ:</td>
+				<td><TMPL_VAR NAME="MSG"></td>
+			</tr>	
+		</table>
+		
+	<!----------------------- 前ページへ戻る用フォーム ----------------------->
+		  
+  	<form method="post" action="http://localhost:8080/cgi-bin/input.cgi">
+  		<input type="hidden" name="name" value="<TMPL_VAR ESCAPE=HTML NAME="NAME">" >
+  		<input type="hidden" name="email" value="<TMPL_VAR ESCAPE=HTML NAME="EMAIL">" >
+  		<input type="hidden" name="sex" value="<TMPL_VAR ESCAPE=HTML NAME="SEX">" >
+  		<input type="hidden" name="old" value="<TMPL_VAR ESCAPE=HTML NAME="OLD">" >
+  		<TMPL_LOOP NAME=FOOD_HIDDEN>
+  		    <input type="hidden" name="ary" value="<TMPL_VAR ESCAPE=HTML NAME="VALUE">">
+  		</TMPL_LOOP>
+  		<input type="hidden" name="frmMsg" value="<TMPL_VAR ESCAPE=HTML NAME="FRMMSG">">
+  		<input type="submit" name="submit" value="前のページへ戻る">
+  	</form>
+  	
+  	<!----------------------- 完了ページ用フォーム ----------------------->
+  	
+  	<form method="get" action="http://localhost:8080/cgi-bin/complete.cgi">
+  		<input type="hidden" name="name" value="<TMPL_VAR ESCAPE=HTML NAME="NAME">" >
+  		<input type="hidden" name="email" value="<TMPL_VAR ESCAPE=HTML NAME="EMAIL">" >
+  		<input type="hidden" name="sex" value="<TMPL_VAR ESCAPE=HTML NAME="SEX">" >
+  		<input type="hidden" name="old" value="<TMPL_VAR ESCAPE=HTML NAME="OLD">" >
+  		<TMPL_LOOP NAME=FOOD_HIDDEN>
+  		    <input type="hidden" name="ary" value="<TMPL_VAR ESCAPE=HTML NAME="VALUE">">
+  		</TMPL_LOOP>
+  		<input type="hidden" name="msg" value="<TMPL_VAR ESCAPE=HTML NAME="MSG">" >
+  		<input type="submit" name="" value="申し込む" >
+  	</form>
+
+  </body>
+ </html>	
